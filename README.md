@@ -4,6 +4,16 @@ A local Chrome extension that watches USC course sections and submits one availa
 
 USC checkout includes all pending changes. Seat Watch temporarily unschedules other unregistered selections, checks out the available course, then restores those selections. It keeps a recovery journal and pauses when USC's response leaves a change or submission uncertain.
 
+## Screenshots
+
+| Monitor your watchlist | Search courses by code or title |
+| --- | --- |
+| <a href="docs/screenshots/watchlist.webp"><img src="docs/screenshots/watchlist.webp" alt="USC Seat Watch monitoring two course groups with Start and Stop controls and per-section seat counts" width="330"></a> | <a href="docs/screenshots/course-search.webp"><img src="docs/screenshots/course-search.webp" alt="Course search showing Computer Networks and Computer Systems results for the selected semester" width="330"></a> |
+
+Screenshots show the real popup with fabricated sample data. Course sections,
+seat counts, and instructors are illustrative. Click an image to enlarge it;
+see [section selection and recovery](docs/screenshots/README.md) for more views.
+
 ## Install
 
 Requires Chrome 120 or later. No Node.js or build step is needed to use the extension.
