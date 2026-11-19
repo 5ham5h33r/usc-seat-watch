@@ -1,0 +1,17 @@
+{
+  "name": "usc-seat-watch",
+  "private": true,
+  "version": "2.1.1",
+  "description": "Local USC course monitoring and isolated automatic registration for Chrome.",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "validate": "node scripts/validate.mjs",
+    "check": "npm run validate && npm test",
+    "package": "node scripts/package.mjs"
+  },
+  "devDependencies": {
+    "linkedom": "^0.18.15"
+  }
+}
