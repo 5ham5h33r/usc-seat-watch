@@ -14,7 +14,8 @@ const filename = 'usc-seat-watch-v' + manifest.version + '.zip';
 mkdirSync(dir, { recursive: true });
 const archive = join(dir, filename);
 // Archive only the committed runtime tree and the checked-in license.
-git(['archive', '--format=zip', '--prefix=usc-seat-watch/', '--output=' + archive, '--add-file=LICENSE', 'HEAD:extension']);
+// A subtree archive cannot see the root attributes; override Windows line-ending conversion.
+git(['-c', 'core.autocrlf=false', '-c', 'core.eol=lf', 'archive', '--format=zip', '--prefix=usc-seat-watch/', '--output=' + archive, '--add-file=LICENSE', 'HEAD:extension']);
 const hash = createHash('sha256').update(readFileSync(archive)).digest('hex');
 writeFileSync(archive + '.sha256', hash + '  ' + filename + '\n');
 console.log('Packaged ' + filename + ' from ' + revision);
