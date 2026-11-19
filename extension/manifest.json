@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "USC Seat Watch",
+  "version": "2.1.1",
+  "minimum_chrome_version": "120",
+  "description": "Search USC courses, build a watchlist, and register one available course group at a time with isolated checkouts.",
+  "icons": {"128": "icon.png"},
+  "permissions": ["alarms", "storage", "notifications", "power"],
+  "host_permissions": ["https://classes.usc.edu/*", "https://webreg.usc.edu/*"],
+  "background": {"service_worker": "worker.js"},
+  "action": {"default_popup": "popup.html", "default_title": "USC Seat Watch"},
+  "content_scripts": [{
+    "matches": ["https://webreg.usc.edu/*"],
+    "js": ["guard.js", "dom.js", "content.js"],
+    "run_at": "document_idle"
+  }]
+}

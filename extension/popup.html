@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>USC Seat Watch</title><link rel="stylesheet" href="popup.css"></head>
+<body>
+  <header><span class="eyebrow">LOCAL REGISTRATION HELPER</span><div class="title-row"><h1>USC Seat Watch</h1><span id="course-count" class="count">0 courses</span></div><p class="intro">Your courses. One watchlist.</p></header>
+  <section class="status-card" aria-label="Registration status"><div id="phase">Loading status...</div><p id="message" role="status"></p><p id="checked" class="subtle"></p></section>
+  <p id="error" role="alert" hidden></p>
+  <section id="review-panel" class="notice" hidden><strong>A submission needs your review</strong><p>Check the actual registration result in USC first. A submitted request does not prove enrollment. Acknowledging restores saved selections and stops the helper; it does not submit again.</p><button id="review" class="secondary">I reviewed the USC result</button></section>
+  <section id="cleanup-panel" class="notice" hidden><strong>Restore your scheduled selections</strong><p>The helper saved selections from an interrupted checkout. Restore them before editing the watchlist or starting again. Registered classes are never unscheduled.</p><button id="cleanup" class="secondary">Restore scheduled selections</button></section>
+  <section class="controls" aria-label="Monitoring controls"><label for="tab">USC Web Registration tab</label><select id="tab"></select><p class="start-note">Starting enables automatic registration for every saved course. When all required sections open, the helper adds missing sections, schedules them, and submits that course's checkout.</p><button id="arm" disabled>Start automatic registration</button><button id="stop" class="secondary" disabled>Stop</button></section>
+  <section class="watchlist-section" aria-labelledby="watchlist-heading"><div class="section-title"><h2 id="watchlist-heading">Watchlist</h2><span id="term-label" class="subtle"></span></div><div id="watchlist"></div><p id="empty-list" class="empty" hidden>Add a course below to begin. Courses can be from any department.</p></section>
+  <details id="editor" class="editor">
+    <summary id="add-heading">Add a course <span>Any USC department</span></summary>
+    <div class="term-row"><div><label for="term">Semester</label><select id="term"></select></div><button id="save-term" class="compact secondary">Use semester</button></div>
+    <p id="term-note" class="field-note">Search USC's course list for this semester.</p>
+    <label for="search">Find a course</label><input id="search" type="search" placeholder="Search code or title, e.g. DSCI 556" autocomplete="off" spellcheck="false">
+    <p id="search-message" class="field-note" role="status">Type at least two characters to search any department.</p>
+    <div id="course-results" aria-label="Matching USC courses"></div>
+    <section id="selected-course" class="selected-course" aria-label="Choose course sections" hidden>
+      <h3 id="selected-course-name"></h3>
+      <p class="field-note">Choose your lecture and every required discussion or lab. These sections are watched and submitted together.</p>
+      <p id="section-message" class="field-note" role="status"></p>
+      <div id="section-list"></div>
+      <details class="advanced"><summary>Grade and variable-unit options</summary><label for="grade">Required grade option</label><select id="grade"><option value="L">Letter Grade</option><option value="PN">Pass/No Pass</option><option value="V">Audit</option></select><p class="field-note">Fixed units are supplied by USC. Choose units on each variable-unit section above. Set variable units and grade options in WebReg to match before starting.</p></details>
+    </section>
+    <button id="add-course" class="secondary" type="button" disabled>Add to watchlist</button>
+    <p id="editor-lock" class="field-note" hidden>Stop the helper and finish any checkout review or restoration before changing your watchlist.</p>
+  </details>
+  <details class="help"><summary>How registration and recovery work</summary><p>USC checkout submits every pending change together. The helper temporarily unschedules other unregistered selections, registers one course bundle at a time, and restores those selections afterward. It never unschedules registered classes or submits a partial course bundle.</p><p>The watchlist is checked about every 30 seconds; USC login is checked separately every 5 minutes. Existing SSO is reused when possible. Password, passkey, or Duo prompts require you.</p><p>Keep Chrome open, your laptop connected to power, and the lid open. Verify registration results in USC. An opening or submission does not guarantee enrollment.</p></details>
+  <script src="popup.js"></script>
+</body></html>
