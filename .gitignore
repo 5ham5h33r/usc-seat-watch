@@ -1,0 +1,12 @@
+node_modules/
+.npm-cache/
+reference/
+reference-tree.json
+*.zip
+dist/
+coverage/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
