@@ -26,6 +26,12 @@ Expand **Add a course**. Fresh installations start with an empty watchlist. Exis
 
 Click **Add to watchlist**. The helper fills section IDs internally and verifies course/section membership and unit choices with USC before saving. There is no manual section-number form. Repeat for more courses. Configuration supports up to 12 course groups with up to 6 section components each, and a section can belong to only one group. Every entry represents an enrollment you want; separate entries are not alternative-section preferences or automatic course swaps.
 
+<a href="screenshots/section-selection.webp"><img src="screenshots/section-selection.webp" alt="Course section chooser with a full lecture selected for monitoring, another lecture available, and fixed units supplied" width="386"></a>
+
+Example section selection using fabricated data. Full sections remain selectable
+so you can watch them for an opening. Choose the required sections for your
+course, then click **Add to watchlist**.
+
 Search uses USC's public semester catalog. The reduced code/title list is cached for up to eight hours in Chrome session storage (at most three semesters), so typing does not send a network request for every keystroke or reveal your search terms to USC. Selecting a course retrieves its section details; saving validates the choice again. The picker shows USC's registration notes but does not guess which lecture/lab combinations fulfill a course requirement. Include all required components before adding.
 
 Start acts on the saved watchlist. Configuration editing is locked while running or while a checkout recovery is unresolved. Use the same controlled tab for WebReg and avoid changing scheduled selections while a checkout is being prepared.
@@ -53,6 +59,12 @@ The isolation journal and submission attempt are stored locally. If Chrome close
 - Missing or changed journal identities, pending drops, partial registration of a linked group, and unrecognized page layouts require manual review.
 
 A click is not enrollment. The helper labels a target registered only after USC Course Bin reports all of its selected components registered. It pauses if a full result is not confirmed instead of moving on with an uncertain checkout.
+
+<a href="screenshots/recovery.webp"><img src="screenshots/recovery.webp" alt="Paused registration with a submission review notice, disabled Start button, and a course marked Review needed" width="330"></a>
+
+Example of an uncertain result using fabricated data. Check your enrollment in
+USC before choosing **I reviewed the USC result**. The helper then restores
+saved selections and stops.
 
 ## Timing and sign-in
 
